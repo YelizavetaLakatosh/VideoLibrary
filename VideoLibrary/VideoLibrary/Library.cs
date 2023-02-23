@@ -168,6 +168,24 @@ internal class Library
         }
     }
 
+    public void AddMovie(string nameMovie, string nameActors, string nameDirectors, string genre, string countries, int year, int score)
+    {
+        var actors = nameActors.Split(", ").Select(actor => ListOfActors.GetActor(actor)).ToArray();
+        var directors = nameDirectors.Split(", ").Select(director => new Director { Name = director}).ToArray();
+        Movie newMovie = new Movie
+        {
+            Name = nameMovie,
+            PremiereDate = year,
+            Directors = directors,
+            Actors = actors,
+            Score = score,
+            Genre = genre,
+            Country = countries
+        };
+        Movies.Add(newMovie);
+
+    }
+
     public void ShowAllMovie()
     {
         Console.WriteLine("Все фильмы в медиатеке:");

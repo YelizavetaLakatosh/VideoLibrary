@@ -2,7 +2,7 @@
 
 var library = new Library();
 string str = "";
-while (str != "11")
+while (str != "12")
 {
     Console.WriteLine("Меню");
     Console.WriteLine("Введите 1 - вывести названия всех фильмов библиотеки.");
@@ -15,7 +15,8 @@ while (str != "11")
     Console.WriteLine("Введите 8 - вывести информацию об актерах, снимавшихся как минимум в N фильмах.");
     Console.WriteLine("Введите 9 - вывести информацию об актерах, которые были режиссерами хотя бы одного из фильмов.");
     Console.WriteLine("Введите 10 - найти все фильмы, вышедшие на экран в текущем и прошлом году.");
-    Console.WriteLine("Введите 11 - для выхода");
+    Console.WriteLine("Введите 11 -  добавить фильм в библиотеку.");
+    Console.WriteLine("Введите 12 - для выхода");
 
 
     str = Console.ReadLine();
@@ -78,6 +79,26 @@ while (str != "11")
             Console.Write("Введите год выхода фильмов для просмотра: ");
             int year = Convert.ToInt32(Console.ReadLine());
             library.ShowThisAndLastYearMovies(year);
+        }
+        else if (str == "11")
+        {
+            Console.Write("Введите название фильма: ");
+            string nameMovie = Console.ReadLine();
+            Console.Write("Введите актеров которые снимались в этом фильме через запятую: ");
+            string nameActors = Console.ReadLine();
+            Console.Write("Введите режисеров фильма через запятую: ");
+            string nameDirectors = Console.ReadLine();
+            Console.Write("Введите жанр через запятую: ");
+            string genre = Console.ReadLine();
+            Console.Write("Введите страну через запятую: ");
+            string countries = Console.ReadLine();
+            Console.Write("Введите год выпуска фильма: ");
+            int year = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите оценку: ");
+            int score = Convert.ToInt32(Console.ReadLine());
+            library.AddMovie(nameMovie, nameActors, nameDirectors, genre, countries, year, score);
+
+
         }
     }
     catch (Exception)

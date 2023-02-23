@@ -15,12 +15,12 @@ internal class ListOfActors
             new Actor {Name = "Марион Котийяр", DateOfBirth = "30 сентября 1975"},
             new Actor {Name = "Том Харди", DateOfBirth = "15 сентября 1977"},
             new Actor {Name = "Джозеф Гордон-Левитт", DateOfBirth = "17 февраля 1981"},
-            new Actor {Name = "Бри Ларсон", DateOfBirth = "17 февраля 1981"},
-            new Actor {Name = "Джулианна Мур", DateOfBirth = "17 февраля 1981"},
-            new Actor {Name = "Скарлетт Йоханссон", DateOfBirth = "17 февраля 1981"},
+            new Actor {Name = "Бри Ларсон", DateOfBirth = "1 октября 1989 "},
+            new Actor {Name = "Джулианна Мур", DateOfBirth = "3 декабря 1960"},
+            new Actor {Name = "Скарлетт Йоханссон", DateOfBirth = "22 ноября 1984"},
         };
     }
-    public Actor? GetActor(string name)
+    public Actor GetActor(string name)
     {
         foreach (Actor actor in Actors)
         {
@@ -29,7 +29,10 @@ internal class ListOfActors
                 return actor;
             }
         }
-        return null;
+        return new Actor
+        {
+            Name = name,
+        };
     }
 }
 
